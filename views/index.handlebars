@@ -1,17 +1,20 @@
 <h1>Eat-Da-Burger</h1>
-<img src="../public/assets/images/burger.png"
+<img src="../public/assets/images/burger.png">
+
 <h2>Saved Burgers:</h2>
 
 <ul>
   {{#each burgers}}
     {{#unless devoured}}
-      <li>
-        {{id}}
-	      {{burger_name}}
+      <div>
+        <p>
+          {{id}}
+          {{burger_name}}
+        </p>
         <button class="changeDevour" data-id="{{id}}" data-newdevour="{{devour}}">
-          Devour!
+            Devour!
         </button>
-      </li>
+      </div>
     {{/unless}}
   {{/each}}
 </ul>
@@ -21,10 +24,12 @@
 <ul>
   {{#each burgers}}
     {{#if devoured}}
-      <li>
-        {{id}}
-	      {{burger_name}}
-      </li>
+      <div>
+        <p>
+          {{id}}
+          {{burger_name}}
+        </p>
+      </div>  
     {{/if}}
   {{/each}}
 </ul>
