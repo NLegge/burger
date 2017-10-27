@@ -1,16 +1,26 @@
 // Import MySQL connection.
 var connection = require("../config/connection.js");
 
+function printQuestionMarks(num) {
+	var arr = [];
+  
+	for (var i = 0; i < num; i++) {
+	  arr.push("?");
+	}
+  
+	return arr.toString();
+  }
+
 var orm = {
 	selectAll: function(tableName, cb) {
-		var sqlQuery = "SELECT * FROM " + tableName;
+		var sqlQuery = "SELECT * FROM " + tableName + ";";
 		connection.query(sqlQuery, function(err, result) {
 			if (err) throw err;
 			cb(result);
 		});
 	},
 	insertOne: function(tableName, colName, colValue, cb) {
-		var sqlQuery = "INSERT INTO " + tableName + " (" + colName + ") VALUES (" + colValue + ");";
+		var sqlQuery = "INSERT INTO " + tableName + " (" + colName.toString() + ") VALUES (" + printQuestionMarks(colValue.length) + ");";
 		connection.query(sqlQuery, function(err, result) {
 			if (err) throw err;
 			cb(result);
