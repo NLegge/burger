@@ -20,7 +20,7 @@ var orm = {
 		});
 	},
 	insertOne: function(tableName, colName, colValue, cb) {
-		var sqlQuery = "INSERT INTO " + tableName + " (" + colName.toString() + ") VALUES (" + printQuestionMarks(colValue.length) + ");";
+		var sqlQuery = "INSERT INTO " + tableName + " (" + colName.toString() + ") VALUES (" + colValue + ");";
 		connection.query(sqlQuery, function(err, result) {
 			if (err) throw err;
 			cb(result);
