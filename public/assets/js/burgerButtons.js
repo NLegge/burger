@@ -1,11 +1,11 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
     $(".changeDevour").on("click", function(event) {
+      event.preventDefault();
       var id = $(this).data("id");
-      var newdevour = $(this).data("newdevour");
   
       var newdevourState = {
-        devoured: newdevour
+        devoured: true
       };
   
       // Send the PUT request.
@@ -14,7 +14,7 @@ $(function() {
         data: newdevourState
       }).then(
         function() {
-          console.log("changed devour to", newdevour);
+          console.log("changed devour to", true);
           // Reload the page to get the updated list
           location.reload();
         }
