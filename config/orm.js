@@ -10,7 +10,7 @@ var orm = {
 		});
 	},
 	insertOne: function(tableName, colName, colValue, cb) {
-    var sqlQuery = "INSERT INTO " + tableName + " (" + colName.toString() + ") VALUES (?) ";
+    var sqlQuery = "INSERT INTO " + tableName + " (" + colName + ") VALUES (?) ";
     connection.query(sqlQuery, colValue, function(err, result) {
       if (err) {
         throw err;
