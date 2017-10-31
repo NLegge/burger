@@ -8,10 +8,10 @@ var burger = {
 		});
 	},
 	insertOne: function(colName, colValue, cb) {
-		orm.insertOne("burgers", colName, colValue, function(res) {
-			cb(res);
-		});
-	},
+    orm.create("burgers", colName, colValue, function(res) {
+      cb(res);
+    });
+  },
 	updateOne: function(condValue, cb) {
 		orm.updateOne("burgers", "devoured", "true", "id", condValue, function(res) {
 			cb(res);
